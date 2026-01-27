@@ -1,0 +1,10 @@
+"mongodb+srv://aichasaaydi_db_user:W4hass6DEv1AfHe9@cluster0.vifo278.mongodb.net/?appName=Cluster0"
+mongodb+srv://aichasaaydi_db_user:W4hass6DEv1AfHe9@cluster0.vifo278.mongodb.net/movie_recommender?retryWrites=true&w=majority&appName=Cluster0
+
+python scripts/admin_tasks.py --task offline --mongo-uri "mongodb+srv://aichasaaydi_db_user:W4hass6DEv1AfHe9@cluster0.vifo278.mongodb.net/movie_recommender?retryWrites=true&w=majority&appName=Cluster0"
+
+frontend 
+npm start
+ 
+backend 
+python app.py 
