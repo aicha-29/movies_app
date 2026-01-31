@@ -19,6 +19,10 @@ CORS(app)
 
 # Configuration
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'votre-cle-secrete-tres-longue')
+
+#Flask stocke cette clé dans sa config interne
+#Flask-JWT-Extended va automatiquement la lire
+
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=24)
 jwt = JWTManager(app)
 
@@ -154,7 +158,8 @@ def get_popular_movies():
         movies = list(db.movies.find(
             {},
             {'_id': 0, 'movie_id': 1, 'title': 1, 'genres': 1, 'year': 1, 'bayesian_rating': 1}
-        ).sort('bayesian_rating', -1).limit(20))
+        ).sort('bayesian_rating', -1)#decroissant 
+        .limit(40))
         
         return jsonify(movies), 200
     except Exception as e:
